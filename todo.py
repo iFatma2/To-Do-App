@@ -20,3 +20,15 @@ def save_tasks(tasks):
     with open(File, "w") as f:
         for t in tasks:
             f.write(t + "\n")
+
+
+def list_tasks():
+    tasks = load_tasks()
+    print("\n--- ✨ My To-Do List App ✨ ---")    
+    if not tasks:
+        print("✨ No tasks yet. Add something you want to accomplish!")
+        return
+    
+    for i,t in enumerate(tasks, 1):
+        print(f"{i}. {t}")
+    print("-------------------------------\n")
