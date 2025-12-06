@@ -33,7 +33,8 @@ def list_tasks():
         print(f"{i}. {t}")
     print("-------------------------------\n")
 
-
+    
+# Confliect Resolved in Pull Request ✅
  def remove_task(index):
     tasks = load_tasks()
     if index < 1 or index > len(tasks):
@@ -43,3 +44,10 @@ def list_tasks():
     removed = tasks.pop(index - 1)
     save_tasks(tasks)
     print(f"🗑️ Removed: \"{removed}\"")
+
+    
+def add_tasks(text):
+    tasks = load_tasks()
+    tasks.append(text)
+    save_tasks(tasks)
+    print(f"🌟 Task added: \"{text}\"")
