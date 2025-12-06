@@ -11,7 +11,7 @@ def load_tasks():
     if not os.path.exists(File):
         return []
     
-    with not(File, "r") as f:
+    with open(File, "r") as f:
         return [line.strip() for line in f.readlines()]
     
 
@@ -35,12 +35,11 @@ def list_tasks():
 
     
 # Confliect Resolved in Pull Request ✅
- def remove_task(index):
+def remove_task(index):
     tasks = load_tasks()
     if index < 1 or index > len(tasks):
         print("⚠️ Invalid task number.")
         return
-    
     removed = tasks.pop(index - 1)
     save_tasks(tasks)
     print(f"🗑️ Removed: \"{removed}\"")
@@ -70,7 +69,7 @@ def main():
         if not text:
             print("⚠️ Please type a task after 'add'.")
         else:
-            add_task(text)
+            add_tasks(text)
 
     elif cmd == "list":
         list_tasks()
