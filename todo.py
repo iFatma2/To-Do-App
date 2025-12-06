@@ -15,3 +15,8 @@ def load_tasks():
         return [line.strip() for line in f.readlines()]
     
 
+
+def save_tasks(tasks):
+    with open(File, "w") as f:
+        for t in tasks:
+            f.write(t + "\n")
