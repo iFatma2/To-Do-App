@@ -32,3 +32,14 @@ def list_tasks():
     for i,t in enumerate(tasks, 1):
         print(f"{i}. {t}")
     print("-------------------------------\n")
+
+
+ def remove_task(index):
+    tasks = load_tasks()
+    if index < 1 or index > len(tasks):
+        print("⚠️ Invalid task number.")
+        return
+    
+    removed = tasks.pop(index - 1)
+    save_tasks(tasks)
+    print(f"🗑️ Removed: \"{removed}\"")
