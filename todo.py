@@ -32,3 +32,10 @@ def list_tasks():
     for i,t in enumerate(tasks, 1):
         print(f"{i}. {t}")
     print("-------------------------------\n")
+
+
+def add_tasks(text):
+    tasks = load_tasks()
+    tasks.append(text)
+    save_tasks(tasks)
+    print(f"🌟 Task added: \"{text}\"")
